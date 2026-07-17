@@ -1,0 +1,65 @@
+/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0B1E3D;
+}
+
+/* Fade-in when a view mounts */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.view {
+  animation: fadeIn 0.35s ease;
+}
+
+/* Flight result cards lift slightly on hover — signals "clickable" */
+.flight-card {
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+.flight-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(242, 166, 90, 0.4);
+}
+
+/* Buttons get a subtle press-down effect */
+.btn {
+  transition: transform 0.1s ease, opacity 0.15s ease;
+}
+.btn:hover {
+  opacity: 0.92;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Loading spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.spinner {
+  animation: spin 0.8s linear infinite;
+}
+
+/* Mobile: stack the search form fields instead of a row */
+@media (max-width: 640px) {
+  .search-card {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .search-card > * {
+    width: 100% !important;
+  }
+  h1.hero-title {
+    font-size: 30px !important;
+  }
+  .nav-links {
+    display: none !important;
+  }
+}
